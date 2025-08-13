@@ -1,0 +1,18 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -rf public && mkdir -p public/deps public/css",
+    "build:css": "sass frontend/css/main.scss:public/css/stylesheet.css --style=compressed --load-path=node_modules",
+    "copy:htmx": "cp node_modules/htmx.org/dist/htmx.min.js public/deps/",
+    "copy:html": "cp frontend/html/*.html public/",
+    "build": "npm run clean && npm run build:css && npm run copy:htmx && npm run copy:html",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@picocss/pico": "^2.1.1",
+    "sass": "^1.90.0",
+    "htmx.org": "^2.0.6"
+  }
+}
